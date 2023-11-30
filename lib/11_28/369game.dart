@@ -8,8 +8,6 @@ Player 1, Player 2, Player 3, Player 4
 총 clap, rool, ahh 총 개수 출력
 플레이 당 clap을 했는지 출력
 가장많은 clap을 한 플레이어 출력
-
-
 */
 
 void main() {
