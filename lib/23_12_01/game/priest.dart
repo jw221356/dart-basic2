@@ -3,9 +3,11 @@ void main() {
   Cleric cleric = Cleric(name:'priest');
   cleric.selfAid();
 
-  int sec = 4;
-  int realRecoverymp = cleric.pray(sec);
-  print('$realRecoverymp 회복함');
+  cleric.pray(3);
+
+  final cleric1 = Cleric(name:'아서스', hp:40, mp:5);
+  final cleric2 = Cleric(name:'아서스', hp:35);
+  final cleric3 = Cleric(name:'아서스');
 }
 
 class Cleric {
@@ -21,9 +23,7 @@ class Cleric {
    this.mp = maxmp,
  });
 
-  final cleric1 = Cleric(name:'아서스', hp:40, mp:5);
-  final cleric2 = Cleric(name:'아서스', hp:35);
-  final cleric3 = Cleric(name:'아서스');
+
 
 
   void selfAid() {
@@ -34,19 +34,15 @@ class Cleric {
   }
 
   int pray(int sec) {
-    Random random = Random();
 
-    final int beforemp = mp;
+   final int beforemp = mp;
+   final int recoverymp = Random().nextInt(3);
 
-    final int recoverymp = sec + Random().nextInt(3);
-
-    final int realRecoverymp = mp - beforemp;
-    mp += recoverymp;
-
+    mp += (sec + recoverymp);
     if (mp > maxmp) {
       mp = maxmp;
     }
-
+    print('$recoverymp 회복함');
     return beforemp - mp;
   }
 }
