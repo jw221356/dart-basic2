@@ -14,7 +14,9 @@ class Wizard {
   })  : _name = name,
         _hp = hp,
         _mp = mp,
-        _wand = wand {
+        _wand = wand;
+
+  set name(String name){
     if (_name.length < 3) {
       throw Exception('마법사 이름은 3글자 이상이여야 한다.');
     }
