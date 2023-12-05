@@ -1,54 +1,70 @@
 import 'dart:math';
 
-import 'sword.dart';
+import 'slime.dart';
 
-// top level
-int heroMoney = 100;
+import 'sword.dart';
 
 class Hero {
   // 공통의 돈
   static int money = 100;
+
   static void moneyRandom() {
     Hero.money = Random().nextInt(1000);
   }
 
   String name;
-  int hp;
+  int _hp;
   Sword? sword;
 
   Hero({
-    this.name = '홍길동',
-    this.hp = 100,
+    required this.name,
+    required int hp,
     this.sword,
-  });
-  // : _hp = hp;
+  }) : _hp = hp {
+    print('1. Hero 생성자');
+  }
+
+  // getter
+  // 프로퍼티
+  int get hp => _hp;
+
+  set hp(int value) {
+    if (value < 0) {
+      throw Exception('hp는 0보다 작을 수 없다');
+    }
+
+    _hp = value;
+  }
+
+  // Java 스타일의 getter/ setter
   //
-  // // getter
-  // // 프로퍼티
-  // int get hp => _hp;
+  // void setName(String name) {
+  //   _name = name;
+  // }
   //
-  // set hp(int value) {
-  //   @@ -51,6 +52,9 @@ void main() {
-  //   print(Hero.money);
-  //
-  //   final hero = Hero(hp: 100);
-  //   hero.name = 'aa';
-  //   print(hero.hp);
-  //   hero.hp = 100;
+  // String getName() {
+  //   return _name;
+  // }
 
   // 메서드 : 클래스내에서 클래스를 위한 동작을 하는 함수
   // 함수 : 클래스랑 상관 없이 독자적으로 실행되는 함수
-  void attack() {}
+  void attack(Slime slime) {
+    slime.hp -= 10;
+    print('10의 데미지!!!');
+  }
 
-  void run() {}
+  void run() {
+    print('뛰었다');
+  }
 }
 
 void main() {
   print(Hero.money);
 
-  final h1 = Hero();
-
-  print(heroMoney);
+  final hero = Hero(name: '용사', hp: 100);
+  hero.name = 'aa';
+  print(hero.hp);
+  hero.hp = 100;
 
   // final fireSword = Sword(name: 'bbb', damage: 10);
   //
@@ -64,12 +80,5 @@ void main() {
   //
   // final hero = Hero(name: 'aaa', hp: 10, sword: fireSword);
   //
-  final person = Person();
   Hero.moneyRandom();
-}
-
-class Person {
-  String name;
-
-  Person({this.name = '아무개'});
 }
