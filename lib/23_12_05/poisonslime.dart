@@ -54,8 +54,11 @@ class PoisonSlime extends Slime {
       print('추가로, 독 포자를 살포했다!');
       int damage = (hero.hp ).floor(); // floor()소수 또는 부동 소수점 숫자를 그보다 작거나 같은 가장 가까운 정수로 내림하는 데 사용
       print('$damage 포인트의 데미지');
-      hero.hp -= damage;
+
       _poison--;
+
+      hero.hp -= damage;
+
     }
   }
 
