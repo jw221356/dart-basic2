@@ -15,3 +15,4 @@ class Book extends TangibleAsset {
     required super.weight,
   });
 }
+
