@@ -1,3 +1,6 @@
+
+import 'package:intl/intl.dart';
+
 class Book {
   String title;
   DateTime publishDate = DateTime.now();
@@ -21,6 +24,13 @@ class Book {
   @override
   int get hashCode => publishDate.hashCode ^ title.hashCode;
 
+  @override
+  int compareTo(Book other) {
+    String currentFormat = DateFormat('yyyy-MM-dd').format(publishDate);
+    String otherFormat = DateFormat('yyyy-MM-dd').format(other.publishDate);
+    return currentFormat.compareTo(otherFormat);
+  }
+
   // deep copy 를 지원한다
   Book copyWith({
     String? title,
@@ -39,6 +49,7 @@ class Book {
     return 'Book{title: $title, publishDate: $publishDate, comment: $comment}';
   }
 }
+
 
 void main() {
   final DateTime now = DateTime.now();
