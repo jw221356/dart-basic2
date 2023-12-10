@@ -13,16 +13,16 @@ class Book {
   });
 
   @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
+  bool operator ==(Object other) =>
+    identical(this, other) ||
       other is Book &&
         runtimeType == other.runtimeType &&
-        publishDate == other.publishDate &&
-        title == other.title;
-  }
+        title == other.title &&
+        DateFormat('yyyy-MM-dd').format(publishDate) ==
+          DateFormat('yyyy-MM-dd').format(other.publishDate);
 
   @override
-  int get hashCode => publishDate.hashCode ^ title.hashCode;
+  int get hashCode => title.hashCode ^ DateFormat('yyyy-MM-dd').format(publishDate).hashCode;
 
   @override
   int compareTo(Book other) {
