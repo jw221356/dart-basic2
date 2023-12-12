@@ -43,7 +43,7 @@ void main() {
   // 2. map 거래자가 근무하는 모든 도시를 중복 없이 나열하시오
   print(transactions.map((e) => e.trader.city).toSet());
 
-  //where sort 3. 케임브리지에서 근무하는 모든 거래자를 찾아서 이름순으로 정렬하여 나열하시오
+  // 3. where sort 케임브리지에서 근무하는 모든 거래자를 찾아서 이름순으로 정렬하여 나열하시오
   final a = transactions
       .where((e) => e.trader.city.contains("Cambridge"))
       .map((e) => e.trader.city)
