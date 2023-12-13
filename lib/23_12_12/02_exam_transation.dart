@@ -63,7 +63,7 @@ void main() {
       .toSet()
       .sorted((a, b) => compareNatural(a, b)));
 
-// 5. 밀라노에 거래자가 있는가? 아니면 any를 사용하여 밀라노에 거래자가 있는지만 출력하는 것인가?
+// 5. 밀라노에 거래자가 있는가?
   print(transactions.any((e) => e.trader.city == "Milan"));
 
 // 6. 케임브리지에 거주하는 거래자의 모든 트랜잭션값을 출력하시오
