@@ -1,9 +1,8 @@
 import 'dart:convert';
 
-
-import 'package:test/test.dart';
 import 'package:untitled/23_12_18/post.dart';
 import 'package:untitled/23_12_18/post_repository.dart';
+import 'package:test/test.dart';
 
 // 네트워크 환경에 의존하면 안 된다!!!
 void main() {
@@ -23,7 +22,7 @@ class MockPostRepositoryImpl implements PostRepository {
   @override
   Future<List<Post>> getPosts() async {
     final jsonList = jsonDecode(fakePosts) as List<dynamic>;
-    return jsonList.map((e) => Post.fromMap(e)).toList();
+    return jsonList.map((e) => Post.fromJson(e)).toList();
   }
 
 }
