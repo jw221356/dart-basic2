@@ -1,5 +1,5 @@
 import '../post.dart';
-import 'post_repository.dart';
+import 'package:untitled/23_12_18/05_exam/post_repository.dart';
 
 class PostManager {
   final PostRepository _postRepository;
