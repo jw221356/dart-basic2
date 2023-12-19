@@ -1,4 +1,6 @@
 
-int findMax(List<int> num){
-  return findMax([2,5,1,9,3] );
-}
+import 'dart:math';
+
+findMax(List<int> num) => num.reduce((v, e) => max(v, e));
+
+
